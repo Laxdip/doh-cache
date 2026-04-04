@@ -1,0 +1,27 @@
+# DOH Cache Configuration - Prasad's Advanced DNS Cache
+
+server:
+  host: 127.0.0.1
+  port: 5353  # Use 53 if you want system DNS (needs admin/root)
+  
+upstream:
+  primary: "https://cloudflare-dns.com/dns-query"
+  secondary: "https://dns.google/dns-query"
+  timeout: 5  # seconds
+  
+cache:
+  max_size: 1000  # Maximum entries
+  default_ttl: 300  # 5 minutes
+  max_ttl: 86400    # 24 hours
+  cleanup_interval: 60  # seconds
+  
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/doh-cache.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  
+features:
+  prefetch: true  # Refresh popular entries before expiry
+  ratelimit: 100  # Max queries per second
+  blocklist: []   # Domains to block (e.g., ["facebook.com"])
