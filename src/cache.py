@@ -1,6 +1,5 @@
 """
-Advanced Cache System for Prasad's DOH Cache
-Features: LRU eviction, TTL management, prefetch tracking, statistics
+
 """
 
 import time
