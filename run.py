@@ -189,7 +189,7 @@ def main():
     enable_prefetch = not args.no_prefetch and config['features']['prefetch']
     timeout = config['upstream']['timeout']
     
-    # Logging 
+    # Logging configuration
     log_level = 'DEBUG' if args.debug else config['logging']['level']
     log_file = config['logging']['file']
     max_bytes = config['logging']['max_bytes']
